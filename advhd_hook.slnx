@@ -1,0 +1,7 @@
+<Solution>
+  <Configurations>
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="advhd_hook.vcxproj" Id="f562e714-964b-4fca-bd71-121c488c46bc" />
+</Solution>
