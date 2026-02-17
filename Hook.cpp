@@ -97,7 +97,10 @@ bool HookEngine::UninstallHook(HookInfo* hookInfo)
         return false;
 
     if (MH_RemoveHook(hookInfo->targetAddress) != MH_OK)
+    {
+        MH_EnableHook(hookInfo->targetAddress);
         return false;
+    }
 
     hookInfo->isHooked = false;
 
@@ -112,12 +115,5 @@ bool HookEngine::UninstallHook(HookInfo* hookInfo)
     }
 
     delete hookInfo;
-
-    if (g_hooks.empty() && g_minHookInitialized)
-    {
-        if (MH_Uninitialize() == MH_OK)
-            g_minHookInitialized = false;
-    }
-
     return true;
 }
